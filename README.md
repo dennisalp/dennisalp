@@ -1,5 +1,3 @@
-- 👋 Hi, I’m @dennisalp
-
 I put code from different projects here, sometimes :worried:
 
 <!---
