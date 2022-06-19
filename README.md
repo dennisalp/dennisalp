@@ -1,4 +1,4 @@
-I put code from different projects here, sometimes :worried:
+I put code from various projects here, sometimes :worried:
 
 <!---
 dennisalp/dennisalp is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
