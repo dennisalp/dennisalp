@@ -7,20 +7,24 @@ sloccount .
 
 Latest run of [SLOCCount](https://dwheeler.com/sloccount/):
 
-    Total Physical Source Lines of Code (SLOC) = 18,840
+    Total Physical Source Lines of Code (SLOC) = 38,237
 
     Totals grouped by language (dominant language first):
-    python:       10067 (53.43%)
-    sh:            7127 (37.83%)
-    java:          1303 (6.92%)
-    ansic:          279 (1.48%)
-    perl:            64 (0.34%)
+    python:       20643 (53.99%)
+    sh:           14898 (38.96%)
+    java:          2353 (6.15%)
+    ansic:          279 (0.73%)
+    perl:            64 (0.17%)
 
-    SLOC    Directory              SLOC-by-Language (Sorted)
-    6937    telescope-pipelines    sh=6476,python=461
-    5617    astro-utils            python=4623,sh=651,ansic=279,perl=64
-    4983    exoplanet-refraction   python=4983
-    1303    dota2-bot              java=1303
+    SLOC	Directory	SLOC-by-Language (Sorted)
+    8911    87a-nustar      sh=5804,python=3107
+    7833    87a-limits      python=5525,sh=2244,perl=64
+    6937    telescope-pipelines sh=6476,python=461
+    5276    astro-utils     python=4623,sh=374,ansic=279
+    4983    exoplanet-refraction python=4983
+    1944    supernova-absorption python=1944
+    1303    dota2-bot       java=1303
+    1050    stm-postprocess java=1050
 
 <!---
 dennisalp/dennisalp is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
