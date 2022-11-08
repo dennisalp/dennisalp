@@ -1,5 +1,10 @@
 I put code from various projects here, sometimes :worried:
 
+<!---
+https://dwheeler.com/sloccount/
+sloccount .
+--->
+
 Latest run of [SLOCCount](https://dwheeler.com/sloccount/):
 
     Total Physical Source Lines of Code (SLOC) = 18,840
