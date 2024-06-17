@@ -60,45 +60,53 @@ sloccount 87a-limits \
           tesla-valuation-model
 --->
 
+
+# Useful Commands
+
+## `pip freeze`
 ```
 pip freeze > requirements.txt
+```
+
+## searching
+```
 grep -ri --include='*.py' --exclude-dir=.git --exclude-dir=__pycache__ --exclude-dir=.* "create_sample"
 find . -type f -name '*.py' ! -path '*/__pycache__/*' ! -path '*/.*' -exec grep -i "latest_only" {} +
 ```
 
-# Usage of Python logging
-```
-logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
-```
-
-# A successful sed, note exclusion of hidden folders to prevent a .git distaster
+## A successful `sed`, note exclusion of hidden folders to prevent a `.git` distaster
 ```
 find . \( -type d -name .git -prune \) -o -type f -a -name "*.py" -print0 | xargs -0 sed -i 's/cc\.WEIGHT_DECAY/self\.weight_decay/g'
 grep -nr --include \*.sql "ANBI\." .
 grep -nr --include \*.sql -E "[A-Z]{4}\." .
 ```
 
-# Remove all notebook checkpoints
+## Remove all notebook checkpoints
 ```
 find . -name ".ipynb_checkpoints" -type d -exec rm -rf {} +
 ```
 
-# Check encodings
+## Check encodings
 ```
 for f in `find | egrep -v *.sql`; do echo "$f" ' -- ' `file -bi "$f"` ; done
 ```
-# Convert encoding
+## Convert encoding
 ```
 iconv -f utf8 -t iso88591 umlaut-utf8.txt > umlaut-iso88591.txt
 ```
 
-# Compress all output
+## Compress
 ```
 tar -czvf out.tar.gz */out/*
 ```
 
-# Replace "line feed" with "carriage return line feed"
+## Replace "line feed" with "carriage return line feed"
 ```
 CR=$(printf '\r')
 find AF* -type f -exec sed -i "s/\$/$CR/" {} \;
+```
+
+## Usage of Python logging
+```
+logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
 ```
