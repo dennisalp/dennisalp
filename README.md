@@ -1,4 +1,4 @@
-I put code from various projects here, sometimes :worried:
+# I put code from various projects here, sometimes :worried:
 
 ```
 Total Physical Source Lines of Code (SLOC) = 68,408
@@ -63,50 +63,101 @@ sloccount 87a-limits \
 
 # Useful Commands
 
-## `pip freeze`
+I'm sorry. I'll just leave all of these here.
+
+### Standard `setup.sh`
 ```
-pip freeze > requirements.txt
+#!/bin/bash
+
+# good os, good terminal
+python -m venv .venv
+source .venv/bin/activate
+
+# bad os, good terminal
+py -m venv .venv
+source .venv/Scripts/activate
+
+# bad os, bad terminal
+py -m venv .venv
+.\.venv\Scripts\activate
+
+
+pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
-## searching
+### Searching
 ```
 grep -ri --include='*.py' --exclude-dir=.git --exclude-dir=__pycache__ --exclude-dir=.* "create_sample"
 find . -type f -name '*.py' ! -path '*/__pycache__/*' ! -path '*/.*' -exec grep -i "latest_only" {} +
 ```
 
-## A successful `sed`, note exclusion of hidden folders to prevent a `.git` distaster
+### A successful `sed`, note exclusion of hidden folders to prevent a `.git` distaster
 ```
 find . \( -type d -name .git -prune \) -o -type f -a -name "*.py" -print0 | xargs -0 sed -i 's/cc\.WEIGHT_DECAY/self\.weight_decay/g'
 grep -nr --include \*.sql "ANBI\." .
 grep -nr --include \*.sql -E "[A-Z]{4}\." .
 ```
 
-## Remove all notebook checkpoints
+### Remove All Notebook Checkpoints
 ```
 find . -name ".ipynb_checkpoints" -type d -exec rm -rf {} +
 ```
 
-## Check encodings
+### Check Encodings
 ```
 for f in `find | egrep -v *.sql`; do echo "$f" ' -- ' `file -bi "$f"` ; done
 ```
-## Convert encoding
+### Convert Encodings
 ```
 iconv -f utf8 -t iso88591 umlaut-utf8.txt > umlaut-iso88591.txt
 ```
 
-## Compress
+### Compression
 ```
 tar -czvf out.tar.gz */out/*
+find . -type f -name "*.tar.gz" -execdir tar -xvzf {} \;
+find . -name '*.gz' -exec gunzip '{}' \;
 ```
 
-## Replace "line feed" with "carriage return line feed"
+### Replace "line feed" with "carriage return line feed"
 ```
 CR=$(printf '\r')
 find AF* -type f -exec sed -i "s/\$/$CR/" {} \;
 ```
 
-## Usage of Python logging
+### Usage of Python Logging
 ```
 logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
+```
+
+### `rsync` Backups
+```
+rsync -v -a -u --delete --force  /home/dalp/Dropbox/ /media/dalp/F05A1E4C5A1E1048/Dropbox/
+rsync -v -a -u --delete --force  /home/dalp/ /media/dalp/F05A1E4C5A1E1048/red/
+
+rsync -v -a --delete --delete-after --force --include='*.CCF' --exclude='*/' sasdev-xmm.esac.esa.int::XMM_VALID_CCF ~/ccf/
+```
+
+### Good `curl` Flags
+```
+curl -sS -O -J "http://nxsa.esac.esa.int/nxsa-sl/servlet/data-action-aio?level=PPS&obsno=0770380401"
+```
+
+### Media
+```
+ffmpeg -i in.m4a out.mp3
+sox --norm=-10 in.mp3 out.mp3
+
+for f in *.jpeg; do convert -compress jpeg ./"$f" ./"${f%.jpeg}.pdf"; done
+```
+
+### Misc Utils
+```
+pdftk inputs*.pdf cat output output.pdf
+ 
+echo 'Message' | mail -s 'Subject' username@domain.tld
+notify-send -u normal 'Topic' 'Message'
+
+decrypt_data.pl -d 40501004004
 ```
