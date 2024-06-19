@@ -106,6 +106,8 @@ find . -name ".ipynb_checkpoints" -type d -exec rm -rf {} +
 
 ### Check Encodings
 ```
+file -i *.txt  # Linux
+file -I *.txt  # Mac
 for f in `find | egrep -v *.sql`; do echo "$f" ' -- ' `file -bi "$f"` ; done
 ```
 ### Convert Encodings
